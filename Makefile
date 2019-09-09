@@ -1,6 +1,6 @@
 CXX = g++
 AR = ar rcs
-CXXFLAGS = -std=c++14 -g -Wall -Iinclude -I../fluxions-gte/include -I../hatchetfish/include -I../fluxions-deps/include
+CXXFLAGS = -std=c++14 -g -Wall -Iinclude -I../fluxions-gte/include -I../hatchetfish/include -I../fluxions-deps/include `python3-config --includes`
 LDFLAGS = 
 
 # We use this to 
