@@ -98,4 +98,4 @@ std::map<std::string, Df::Token>::const_iterator VariableList::get_var_end() con
 {
     return variables.cend();
 }
-} // namespace KASL
+} // namespace Df

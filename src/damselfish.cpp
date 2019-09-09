@@ -1115,7 +1115,7 @@ namespace Df
 		}
 		}
 		*/
-} // namespace KASL
+} // namespace Df
 
 #ifdef DAMSELFISH_INTERPRETER
 int main(int argc, char **argv)

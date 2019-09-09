@@ -628,6 +628,6 @@ namespace Df
 			return false;
 		return !lhs->Equals(rhs);
 	}
-} // namespace KASL
+} // namespace Df
 
 #endif
