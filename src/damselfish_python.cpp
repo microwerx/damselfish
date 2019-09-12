@@ -23,6 +23,7 @@
 #include <iostream>
 #include <locale>
 #include <string>
+#include <hatchetfish.hpp>
 
 #ifdef _WIN32
 #ifndef WIN32_LEAN_AND_MEAN
@@ -30,6 +31,8 @@
 #endif
 #include <windows.h>
 #endif
+
+#pragma comment(lib, "hatchetfish.lib")
 
 inline std::string wstring_to_string(const std::wstring &wstr) noexcept
 {
@@ -210,9 +213,9 @@ namespace Df
 	{
 		if (pPyInterpreter == nullptr)
 			return;
-#ifdef WIN32
+#ifdef _WIN32
 		BOOL result = AllocConsole();
-		hflog.info("%(): Opening Console: result = %d", __FUNCTION__, result);
+		Hf::Log.info("%(): Opening Console: result = %d", __FUNCTION__, result);
 #endif
 		std::cout << "PythonInterpreter::thread_func() [" << pPyInterpreter->myThread.get_id() << "]: starting[" << programName << "]..." << std::endl;
 		try {

@@ -39,7 +39,7 @@
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
@@ -69,7 +69,14 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>$(ProjectDir)..\libs\include;$(ProjectDir)..\hatchetfish\include;$(ProjectDir)include;$(VC_IncludePath);$(WindowsSDK_IncludePath);C:\Program Files\Python37\include</IncludePath>
+    <LibraryPath>$(SolutionDir)$(Platform)\$(Configuration)\;$(ProjectDir)..\libs\lib\x64\;$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);$(NETFXKitsDir)Lib\um\x64;C:\Program Files\Python37\libs\</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IncludePath>$(ProjectDir)..\libs\include;$(ProjectDir)..\hatchetfish\include;$(ProjectDir)include;$(VC_IncludePath);$(WindowsSDK_IncludePath);C:\Program Files\Python37\include</IncludePath>
+    <LibraryPath>$(SolutionDir)$(Platform)\$(Configuration)\;$(ProjectDir)..\libs\lib\x64\;$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);$(NETFXKitsDir)Lib\um\x64;C:\Program Files\Python37\libs\</LibraryPath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -123,6 +130,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="include\damselfish.hpp" />
+    <ClInclude Include="include\damselfish_evaluator.hpp" />
+    <ClInclude Include="include\damselfish_json.hpp" />
+    <ClInclude Include="include\damselfish_lexer.hpp" />
+    <ClInclude Include="include\damselfish_python.hpp" />
+    <ClInclude Include="include\damselfish_syntax_semantic_analyzer.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\damselfish.cpp" />
+    <ClCompile Include="src\damselfish_evaluator.cpp" />
+    <ClCompile Include="src\damselfish_json.cpp" />
+    <ClCompile Include="src\damselfish_lexer.cpp" />
+    <ClCompile Include="src\damselfish_python.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
